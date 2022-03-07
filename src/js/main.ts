@@ -42,7 +42,10 @@ const App = {
         window.addEventListener('resize', () => {
             this.canvas.updateCanvasSize();
             this.calculateMaxBubbles();
-            this.canvasPosition = this.canvas.getBoundingClientRect();
+            this.canvasPosition = {
+                x: this.canvas.canvas.getBoundingClientRect().x + parseInt(getComputedStyle(this.canvas.canvas).borderWidth),
+                y: this.canvas.canvas.getBoundingClientRect().y + parseInt(getComputedStyle(this.canvas.canvas).borderWidth)
+            };
         })
         this.canvas.canvas.addEventListener('mousemove', (event: MouseEvent) => {
             this.mousePosition.x = event.clientX - this.canvasPosition.x;
