@@ -23,6 +23,6 @@ Une version du projet se trouve [ici](https://hepl-mmi.github.io/bubble-aquarium
 6. Le nombre de bulles est calculé dynamiquement à partir de la largeur réelle du canvas. Il doit être mis à jour. Ainsi le nombre de bulles augmente ou diminue quand on redimensionne la fenêtre. (Voir le point suivant.)
 7. Les bulles ne sont pas générées d'un coup au chargement, elles sont générées dans la boucle d’animation. Autrement dit, chaque fois que le canvas est mis à jour, on vérifie le nombre de bulles réel avec le nombre de bulles attendu.![3](img/3.gif)
 8. Dessinez un cercle qui représente la souris. Sa couleur, son rayon, et son opacité sont définis dans le fichier de configuration. La position du cercle doit se mettre à jour quand on déplace la souris, dans le canvas.![4](img/4.gif)
-9. Chaque cercle, avant de se dessiner, vérifie s'il entre en [collision](https://developer.mozilla.org/fr/docs/Games/Techniques/2D_collision_detection#collision_de_cercles) avec le curseur. Si c'est le cas, alors il change son opacité à 0 jusqu'à sortir du canvas. Puisqu'une fois qu'il sort, ses paramètres sont régénérés.![5](img/5.gif)
+9. Chaque cercle, avant de se dessiner, vérifie s'il entre en [collision](https://developer.mozilla.org/fr/docs/Games/Techniques/2D_collision_detection#collision_de_cercles) avec le curseur. Si c'est le cas, alors il change son opacité à 0 jusqu'à sortir du canvas. Puisqu'une fois qu'il sort, ses paramètres sont regénérés.![5](img/5.gif)
 
 
