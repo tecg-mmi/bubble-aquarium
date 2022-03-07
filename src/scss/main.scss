@@ -1,0 +1,37 @@
+$main-color1: hsl(201, 20%, 23%);
+$main-color2: hsl(186, 21%, 26%);
+$main-color3: hsl(165, 19%, 40%);
+$main-color4: hsl(133, 18%, 59%);
+$main-color5: hsl(97, 13%, 80%);
+
+
+.hidden {
+  display: none;
+}
+
+* * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $main-color2;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#my-canvas {
+  display: block;
+  margin: 0 auto;
+  border: 1rem solid $main-color1;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem .5rem rgb(0 0 0 / 41%);
+}
