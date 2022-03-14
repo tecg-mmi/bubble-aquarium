@@ -17,8 +17,11 @@ export const canvas = {
     },
     createLinearGradient(): CanvasGradient {
         this.gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, this.canvas.height);
-        this.gradient.addColorStop(0, settings.gradientColor[0].toString());
-        this.gradient.addColorStop(1, settings.gradientColor[1].toString());
+        let fraction: number = 1 / (settings.gradientColor.length - 1);
+        for (let i = 0; i < settings.gradientColor.length; i++) {
+            console.log(i * fraction);
+            this.gradient.addColorStop(i * fraction, settings.gradientColor[i].toString());
+        }
         return this;
     },
     draw() {
