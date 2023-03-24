@@ -2,6 +2,8 @@ import {Canvas} from "../../../canvas-framework-23/src/ts/Canvas";
 import {Hsl} from "../../../canvas-framework-23/src/ts/Colors/Hsl";
 import {Animate} from "../../../canvas-framework-23/src/ts/Animate";
 import {Random} from "../../../canvas-framework-23/src/ts/Helpers/Random";
+import {Mouse} from "../../../canvas-framework-23/src/ts/UserControls/Mouse";
+import {Rgb} from "../../../canvas-framework-23/src/ts/Colors/Rgb";
 import {Bubble} from "./Bubble";
 import {settings} from "../settings";
 
@@ -20,6 +22,12 @@ function main() {
         });
         animation.registerForAnimation(bubble);
     }
+    const mouse = new Mouse({
+        canvas: canvas,
+        radius: 3,
+        color: new Rgb(250, 0, 0)
+    });
+    animation.registerForAnimation(mouse);
     animation.start();
     console.log('Bonjour');
 }
