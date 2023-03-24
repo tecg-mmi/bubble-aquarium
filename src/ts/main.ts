@@ -24,7 +24,7 @@ function main() {
     }
     const mouse = new Mouse({
         canvas: canvas,
-        radius: 3,
+        radius: 10,
         color: new Rgb(250, 0, 0)
     });
     animation.registerForAnimation(mouse);
