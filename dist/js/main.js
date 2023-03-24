@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/main.ts":
+/***/ "./src/ts/main.ts":
 /*!************************!*\
-  !*** ./src/js/main.ts ***!
+  !*** ./src/ts/main.ts ***!
   \************************/
 /***/ (() => {
 
-eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IiIsIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6WyIiXSwiZmlsZSI6Ii4vc3JjL2pzL21haW4udHMuanMifQ==\n//# sourceURL=webpack-internal:///./src/js/main.ts\n");
+eval("function main() {\n  console.log('Bonjour');\n}\n\nmain();//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBQUEsU0FBU0EsSUFBVCxHQUFhO0FBQ1RDLFNBQU8sQ0FBQ0MsR0FBUixDQUFZLFNBQVo7QUFDSDs7QUFFREYsSUFBSSIsIm5hbWVzIjpbIm1haW4iLCJjb25zb2xlIiwibG9nIl0sInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9idWJibGUtYXF1YXJpdW0vLi9zcmMvdHMvbWFpbi50cz9lODg0Il0sInNvdXJjZXNDb250ZW50IjpbImZ1bmN0aW9uIG1haW4oKSB7XG4gICAgY29uc29sZS5sb2coJ0JvbmpvdXInKVxufVxuXG5tYWluKCk7Il0sImZpbGUiOiIuL3NyYy90cy9tYWluLnRzLmpzIn0=\n//# sourceURL=webpack-internal:///./src/ts/main.ts\n");
 
 /***/ }),
 
@@ -167,7 +167,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./src/js/main.ts")))
+/******/ 	__webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./src/ts/main.ts")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./src/scss/main.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
