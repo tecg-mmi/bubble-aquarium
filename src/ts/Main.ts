@@ -1,11 +1,13 @@
 import {settings, settings as s} from "./settings";
 import {Bubble} from "./Bubble";
+import {Loop} from "./framework26/core/Loop";
 
 class Main {
-    private canvas: HTMLCanvasElement;
-    private ctx: CanvasRenderingContext2D;
-    private bubble: Bubble;
-    private bubbles: Bubble[];
+    private readonly canvas: HTMLCanvasElement;
+    private readonly ctx: CanvasRenderingContext2D;
+    private readonly bubble: Bubble;
+    private readonly bubbles: Bubble[];
+    private readonly loop: Loop;
 
 
     constructor() {
@@ -15,15 +17,18 @@ class Main {
         window.addEventListener('resize', () => {
             this.resizeCanvas();
         });
+
+        this.loop = new Loop(() => {
+            this.animate()
+        });
+
+
         this.resizeCanvas();
 
         this.bubble = new Bubble(this.ctx);
         this.generateBubbles();
-        this.animate();
 
-        requestAnimationFrame(() => {
-            this.animate();
-        });
+        this.loop.start();
 
     }
 
@@ -39,17 +44,11 @@ class Main {
     }
 
     private animate() {
-        //
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (const bubble of this.bubbles) {
             bubble.update();
             bubble.draw();
         }
-
-
-        requestAnimationFrame(() => {
-            this.animate();
-        });
     }
 }
 
