@@ -14,9 +14,7 @@ export class Rectangle extends Shape implements IRectangle, IDrawable {
 
     draw() {
         this.ctx.save();
-        this.ctx.translate(this.origine.x, this.origine.y);
-        this.ctx.rotate(this.rotation);
-        this.ctx.beginPath();
+        this.rotateAndTranslate()
         this.ctx.rect(-this.width / 2, -this.height / 2, this.width, this.height);
        this.fillAndStroke();
         this.ctx.restore();

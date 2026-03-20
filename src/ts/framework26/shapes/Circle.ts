@@ -12,9 +12,7 @@ export class Circle extends Shape implements ICircle, IDrawable {
 
     draw() {
         this.ctx.save();
-        this.ctx.translate(this.origine.x, this.origine.y);
-        this.ctx.rotate(this.rotation);
-        this.ctx.beginPath();
+        this.rotateAndTranslate()
         this.ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
         this.fillAndStroke();
         this.ctx.restore();
