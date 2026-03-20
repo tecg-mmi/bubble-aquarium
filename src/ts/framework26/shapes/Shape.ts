@@ -4,14 +4,14 @@ import {IShape} from "../interfaces/shapes/IShape";
 
 export abstract class Shape implements IShape {
     public readonly ctx: CanvasRenderingContext2D;
-    public readonly origine: IOrigin;
+    public readonly origin: IOrigin;
     public readonly color: string;
     public readonly rotation: number;
     public readonly stroke?: IStroke;
 
     protected constructor(shape: IShape) {
         this.ctx = shape.ctx;
-        this.origine = shape.origine;
+        this.origin = shape.origin;
         this.color = shape.color;
         this.rotation = shape.rotation ?? 0;
         this.stroke = shape.stroke;
@@ -29,7 +29,7 @@ export abstract class Shape implements IShape {
     }
 
     protected rotateAndTranslate() {
-        this.ctx.translate(this.origine.x, this.origine.y);
+        this.ctx.translate(this.origin.x, this.origin.y);
         this.ctx.rotate(this.rotation);
         this.ctx.beginPath();
 

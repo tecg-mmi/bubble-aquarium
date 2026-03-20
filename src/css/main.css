@@ -16,7 +16,7 @@
 }
 
 body {
-  background: var(--main-color2);
+  background: var(--main-color5);
   overflow: hidden;
   display: grid;
   grid-template-rows: auto;

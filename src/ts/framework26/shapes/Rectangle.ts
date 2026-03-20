@@ -7,7 +7,7 @@ export class Rectangle extends Shape implements IRectangle, IDrawable {
     public readonly height: number;
 
     constructor(rectangle: IRectangle) {
-        super({ctx: rectangle.ctx, origine: rectangle.origine, color: rectangle.color, rotation: rectangle.rotation, stroke: rectangle.stroke});
+        super({ctx: rectangle.ctx, origin: rectangle.origin, color: rectangle.color, rotation: rectangle.rotation, stroke: rectangle.stroke});
         this.width = rectangle.width;
         this.height = rectangle.height;
     }

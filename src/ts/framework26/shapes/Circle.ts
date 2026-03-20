@@ -6,7 +6,7 @@ export class Circle extends Shape implements ICircle, IDrawable {
     public readonly radius: number;
 
     constructor(circle: ICircle) {
-        super({ctx: circle.ctx, origine: circle.origine, color: circle.color, rotation: circle.rotation, stroke: circle.stroke});
+        super({ctx: circle.ctx, origin: circle.origin, color: circle.color, rotation: circle.rotation, stroke: circle.stroke});
         this.radius = circle.radius;
     }
 

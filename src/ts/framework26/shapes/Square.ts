@@ -6,7 +6,7 @@ export class Square extends Shape implements ISquare, IDrawable {
     public readonly size: number;
 
     constructor(square: ISquare) {
-        super({ctx: square.ctx, origine: square.origine, color: square.color});
+        super({ctx: square.ctx, origin: square.origin, color: square.color});
         this.size = square.size;
     }
 
