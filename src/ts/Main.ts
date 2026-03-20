@@ -1,6 +1,7 @@
 import {settings} from "./settings";
 import {Circle} from "./framework26/shapes/Circle";
 import {Bubble} from "./Bubble";
+import {Loop} from "./framework26/core/Loop";
 
 class Main {
 
@@ -9,6 +10,7 @@ class Main {
     private readonly pointer: Circle;
     private readonly bubbles: Bubble[];
     private intervalID: number;
+    private loop: Loop;
 
     constructor() {
         this.canvas = document.getElementById(settings.canvasID) as HTMLCanvasElement;
@@ -19,12 +21,14 @@ class Main {
         this.resizeCanvas();
         this.bubbles = []
         this.pointer = new Bubble(this.ctx);
-        this.pointer.draw();
+
+        this.loop = new Loop(() => {
+            this.update();
+        });
+
         this.generateBubbles();
 
-        requestAnimationFrame(() => {
-            this.animate();
-        });
+        this.loop.start();
     }
 
     private resizeCanvas() {
@@ -38,16 +42,11 @@ class Main {
         }
     }
 
-
-    private animate() {
+    private update(): void {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.bubbles.forEach((bubble: Bubble) => {
             bubble.update();
             bubble.draw();
-        });
-
-        requestAnimationFrame(() => {
-            this.animate();
         });
     }
 }

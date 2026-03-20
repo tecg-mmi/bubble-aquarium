@@ -8,5 +8,7 @@ export const settings = {
         "hsl(133, 18%, 59%)",
         "hsl(97, 13%, 80%)"
     ],
-    bubbleCount: 30
+    bubbleCount: 30,
+    speed: {min: 1, max: 3},
+    negativeGap: {min: 0, max: 150},
 }

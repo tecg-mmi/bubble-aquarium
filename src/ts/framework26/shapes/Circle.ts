@@ -3,10 +3,16 @@ import {IDrawable} from "../interfaces/IDrawable";
 import {ICircle} from "../interfaces/shapes/ICircle";
 
 export class Circle extends Shape implements ICircle, IDrawable {
-    public readonly radius: number;
+    public radius: number;
 
     constructor(circle: ICircle) {
-        super({ctx: circle.ctx, origine: circle.origine, color: circle.color, rotation: circle.rotation, stroke: circle.stroke});
+        super({
+            ctx: circle.ctx,
+            origine: circle.origine,
+            color: circle.color,
+            rotation: circle.rotation,
+            stroke: circle.stroke
+        });
         this.radius = circle.radius;
     }
 
