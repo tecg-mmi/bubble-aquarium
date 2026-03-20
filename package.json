@@ -1,0 +1,27 @@
+{
+  "name": "bubble-aquarium",
+  "version": "1.0.0",
+  "description": "> A JS exercise use at HEPL for MMI.",
+  "main": "index.js",
+  "dependencies": {
+    "detect-libc": "^2.1.2",
+    "fdir": "^6.5.0",
+    "lightningcss": "^1.32.0",
+    "lightningcss-darwin-arm64": "^1.32.0",
+    "nanoid": "^3.3.11",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.3",
+    "postcss": "^8.5.8",
+    "rolldown": "^1.0.0-rc.10",
+    "source-map-js": "^1.2.1",
+    "tinyglobby": "^0.2.15"
+  },
+  "devDependencies": {
+    "vite": "^8.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel <daniel.schreurs@hepl.be>",
+  "license": "ISC"
+}
