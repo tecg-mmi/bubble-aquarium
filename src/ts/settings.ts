@@ -11,4 +11,8 @@ export const settings = {
     bubbleCount: 30,
     speed: {min: 1, max: 3},
     negativeGap: {min: 0, max: 150},
+    pointer: {
+        color: "red",
+        radius:20
+    }
 }

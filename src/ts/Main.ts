@@ -1,13 +1,13 @@
 import {settings} from "./settings";
-import {Circle} from "./framework26/shapes/Circle";
 import {Bubble} from "./Bubble";
 import {Loop} from "./framework26/core/Loop";
+import {Pointer} from "./Pointer";
 
 class Main {
-
     private readonly canvas: HTMLCanvasElement;
+    private readonly canvasBorderWidth: number;
     private readonly ctx: CanvasRenderingContext2D;
-    private readonly pointer: Circle;
+    private readonly pointer: Pointer;
     private readonly bubbles: Bubble[];
     private intervalID: number;
     private loop: Loop;
@@ -15,13 +15,11 @@ class Main {
     constructor() {
         this.canvas = document.getElementById(settings.canvasID) as HTMLCanvasElement;
         this.ctx = this.canvas.getContext('2d');
-        window.addEventListener('resize', () => {
-            this.resizeCanvas();
-        });
+        this.addEventListeners();
         this.resizeCanvas();
         this.bubbles = []
-        this.pointer = new Bubble(this.ctx);
-
+        this.pointer = new Pointer(this.ctx);
+        this.canvasBorderWidth = parseInt(getComputedStyle(this.canvas).borderWidth);
         this.loop = new Loop(() => {
             this.update();
         });
@@ -29,6 +27,17 @@ class Main {
         this.generateBubbles();
 
         this.loop.start();
+    }
+
+    private addEventListeners() {
+        window.addEventListener('resize', () => {
+            this.resizeCanvas();
+        });
+        this.canvas.addEventListener('mousemove', (evt: MouseEvent) => {
+            const canvasPos = this.canvas.getBoundingClientRect();
+            this.pointer.origine.x = evt.clientX - canvasPos.x - this.canvasBorderWidth;
+            this.pointer.origine.y = evt.clientY - canvasPos.y - this.canvasBorderWidth;
+        });
     }
 
     private resizeCanvas() {
@@ -48,6 +57,7 @@ class Main {
             bubble.update();
             bubble.draw();
         });
+        this.pointer.draw();
     }
 }
 
