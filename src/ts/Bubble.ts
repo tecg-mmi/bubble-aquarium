@@ -1,5 +1,5 @@
 import {Circle} from "./framework26/shapes/Circle";
-import {Random} from "./framework26/helpers/Random";
+import {Random} from "./framework26/Math/Random";
 import {settings} from "./settings";
 
 export class Bubble extends Circle {

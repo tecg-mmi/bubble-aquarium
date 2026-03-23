@@ -2,6 +2,7 @@ import {settings, settings as s} from "./settings";
 import {Bubble} from "./Bubble";
 import {Loop} from "./framework26/core/Loop";
 import {Pointer} from "./Pointer";
+import {Distance} from "./framework26/Math/Distance";
 
 class Main {
     private readonly canvas: HTMLCanvasElement;
@@ -40,13 +41,8 @@ class Main {
             this.resizeCanvas();
         });
         this.canvas.addEventListener('mousemove', (evt) => {
-            const newX = evt.clientX - this.canvas.getBoundingClientRect().x - this.borderWidth;
-            const newY = evt.clientY - this.canvas.getBoundingClientRect().y - this.borderWidth;
-            console.log(newX, newY);
-
-
-            this.pointer.origin.y = newY;
-            this.pointer.origin.x = newX;
+            this.pointer.origin.y = evt.clientY - this.canvas.getBoundingClientRect().y - this.borderWidth;
+            this.pointer.origin.x = evt.clientX - this.canvas.getBoundingClientRect().x - this.borderWidth;
         });
     }
 
