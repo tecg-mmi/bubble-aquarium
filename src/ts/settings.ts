@@ -7,5 +7,14 @@ export const settings = {
         'hsl(186, 21%, 26%)',
         'hsl(165, 19%, 40%)'
     ],
-    maxBubbleCount: 30
+    maxBubbleCount: 30,
+    maxStartingGap: 300,
+    speed: {
+        min: 1,
+        max: 5
+    },
+    pointer: {
+        color: 'red',
+        radius: 20
+    }
 }
