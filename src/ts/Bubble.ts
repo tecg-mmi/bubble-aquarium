@@ -1,6 +1,6 @@
 import {Circle} from "./framework26/shapes/Circle";
-import {Random} from "./framework26/helpers/Random";
 import {settings} from "./settings";
+import {Random} from "./framework26/Math/Random";
 
 export class Bubble extends Circle {
     private pseudoSpeed: number;
@@ -9,7 +9,7 @@ export class Bubble extends Circle {
         const radius = Random.nextInteger(settings.radius);
         super({
             ctx: ctx,
-            origine: {
+            origin: {
                 x: Random.nextInteger({min: radius, max: ctx.canvas.width - radius}),
                 y: ctx.canvas.height + radius + Random.nextInteger(settings.negativeGap)
             },
@@ -20,12 +20,14 @@ export class Bubble extends Circle {
     }
 
     update() {
-        this.origine.y -= this.pseudoSpeed;
-        if (this.origine.y < -this.radius) {
-            this.radius = Random.nextInteger(settings.radius);
-            this.origine.x = Random.nextInteger({min: this.radius, max: this.ctx.canvas.width - this.radius});
-            this.origine.y = this.ctx.canvas.height + this.radius + Random.nextInteger(settings.negativeGap)
+        this.origin.y -= this.pseudoSpeed;
+        if (this.origin.y < -this.radius) {
 
+            this.origin.x = Random.nextInteger({min: this.radius, max: this.ctx.canvas.width - this.radius});
+            this.origin.y = this.ctx.canvas.height + this.radius + Random.nextInteger(settings.negativeGap);
+
+            this.radius = Random.nextInteger(settings.radius);
+            this.pseudoSpeed = Random.nextInteger(settings.speed);
         }
     }
 }

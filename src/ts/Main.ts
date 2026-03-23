@@ -9,7 +9,6 @@ class Main {
     private readonly ctx: CanvasRenderingContext2D;
     private readonly pointer: Pointer;
     private readonly bubbles: Bubble[];
-    private intervalID: number;
     private loop: Loop;
 
     constructor() {
@@ -35,8 +34,8 @@ class Main {
         });
         this.canvas.addEventListener('mousemove', (evt: MouseEvent) => {
             const canvasPos = this.canvas.getBoundingClientRect();
-            this.pointer.origine.x = evt.clientX - canvasPos.x - this.canvasBorderWidth;
-            this.pointer.origine.y = evt.clientY - canvasPos.y - this.canvasBorderWidth;
+            this.pointer.origin.x = evt.clientX - canvasPos.x - this.canvasBorderWidth;
+            this.pointer.origin.y = evt.clientY - canvasPos.y - this.canvasBorderWidth;
         });
     }
 

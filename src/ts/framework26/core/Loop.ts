@@ -1,30 +1,32 @@
-export type LoopCallback = () => void;
-
 export class Loop {
-    private readonly _callback: LoopCallback;
-    private readonly _handlerID: number;
+    private readonly _callback: () => void;
+    private _handlerID: number;
 
 
-    constructor(callback: LoopCallback) {
+    constructor(callback: () => void) {
         this._callback = callback;
     }
 
     start() {
-        requestAnimationFrame(() => {
-            this._update()
+        this._handlerID = requestAnimationFrame(() => {
+            this._animate();
         });
     }
 
-
-    private _update() {
+    private _animate() {
         this._callback();
 
-        requestAnimationFrame(() => {
-            this._update();
+        this._handlerID = requestAnimationFrame(() => {
+            this._animate()
         });
     }
 
     stop() {
-        cancelAnimationFrame(this._handlerID);
+        cancelAnimationFrame(this._handlerID)
+        this._handlerID = null;
+    }
+
+    isLooping() {
+        return (this._handlerID)!!;
     }
 }

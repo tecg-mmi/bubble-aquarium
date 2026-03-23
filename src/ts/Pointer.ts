@@ -6,7 +6,7 @@ export class Pointer extends Circle {
     constructor(ctx: CanvasRenderingContext2D) {
         super({
             ctx: ctx,
-            origine: {
+            origin: {
                 y: 100,
                 x: 50
             },
