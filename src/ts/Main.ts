@@ -2,7 +2,8 @@ import {settings, settings as s} from "./settings";
 import {Bubble} from "./Bubble";
 import {Loop} from "./framework26/core/Loop";
 import {Pointer} from "./Pointer";
-import {Distance} from "./framework26/Math/Distance";
+import {Distance} from "./framework26/math/Distance";
+import {Rgb} from "./framework26/Rgb";
 
 class Main {
     private readonly canvas: HTMLCanvasElement;
@@ -33,6 +34,11 @@ class Main {
         this.generateBubbles();
 
         this.loop.start();
+
+        const color = new Rgb({red: 16.6, green: 50.1, blue: -1});
+        console.log(color.red)// get
+        console.log(color.green)
+        console.log(color.blue)
 
     }
 
