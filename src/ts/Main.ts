@@ -22,7 +22,7 @@ class Main {
         this.borderWidth = parseInt(getComputedStyle(this.canvas).borderWidth)
 
         this.loop = new Loop(() => {
-            this.animate()
+            this.animate();
         });
 
 
@@ -43,6 +43,23 @@ class Main {
         this.canvas.addEventListener('mousemove', (evt) => {
             this.pointer.origin.y = evt.clientY - this.canvas.getBoundingClientRect().y - this.borderWidth;
             this.pointer.origin.x = evt.clientX - this.canvas.getBoundingClientRect().x - this.borderWidth;
+        });
+
+        this.canvas.addEventListener('click', (evt: PointerEvent) => {
+            const cursorOrigin = {
+                x: evt.clientX - this.canvas.getBoundingClientRect().x - this.borderWidth,
+                y: evt.clientY - this.canvas.getBoundingClientRect().y - this.borderWidth
+            }
+
+            this.bubbles.forEach((bubble: Bubble) => {
+                if (Distance.euclidean(bubble.origin, cursorOrigin) < bubble.radius + this.pointer.radius) {
+                    if (this.loop.isLooping()) {
+                        this.loop.stop();
+                    } else {
+                        this.loop.start();
+                    }
+                }
+            });
         });
     }
 

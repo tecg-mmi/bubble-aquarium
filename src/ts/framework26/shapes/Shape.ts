@@ -5,7 +5,7 @@ import {IShape} from "../interfaces/shapes/IShape";
 export abstract class Shape implements IShape {
     public readonly ctx: CanvasRenderingContext2D;
     public readonly origin: IOrigin;
-    public readonly color: string;
+    public color: string;
     public readonly rotation: number;
     public readonly stroke?: IStroke;
 

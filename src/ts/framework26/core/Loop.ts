@@ -27,6 +27,7 @@ export class Loop {
     }
 
     isLooping() {
-        return (this._handlerID)!!;
+        // TODO make it boolean
+        return this._handlerID!!;
     }
 }
