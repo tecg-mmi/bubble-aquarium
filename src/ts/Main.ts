@@ -3,6 +3,7 @@ import {Bubble} from "./Bubble";
 import {Loop} from "./framework26/core/Loop";
 import {Pointer} from "./Pointer";
 import {Distance} from "./framework26/math/Distance";
+import {Rgb} from "./framework26/colors/Rgb";
 
 class Main {
     private readonly canvas: HTMLCanvasElement;
@@ -27,6 +28,10 @@ class Main {
         this.generateBubbles();
 
         this.loop.start();
+
+        const color = new Rgb({green: 2.3, blue: 32, red: 0});
+
+        console.log(color.green);
     }
 
     private addEventListeners() {
@@ -52,7 +57,11 @@ class Main {
                 if (Distance.euclidean(pointerOrigin, bubble.origin) < bubble.radius + this.pointer.radius) {
                     bubble.color = "blue";
                     this.update();
-                    this.loop.stop();
+                    if (this.loop.isLooping()) {
+                        this.loop.stop();
+                    } else {
+                        this.loop.start();
+                    }
                 }
             });
 
