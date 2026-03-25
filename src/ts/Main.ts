@@ -2,6 +2,7 @@ import {settings} from "./settings";
 import {Bubble} from "./Bubble";
 import {Loop} from "./framework26/core/Loop";
 import {Pointer} from "./Pointer";
+import {Distance} from "./framework26/math/Distance";
 
 class Main {
     private readonly canvas: HTMLCanvasElement;
@@ -37,6 +38,26 @@ class Main {
             this.pointer.origin.x = evt.clientX - canvasPos.x - this.canvasBorderWidth;
             this.pointer.origin.y = evt.clientY - canvasPos.y - this.canvasBorderWidth;
         });
+
+        this.canvas.addEventListener('click', (evt: PointerEvent) => {
+            const canvasPos = this.canvas.getBoundingClientRect();
+
+            const pointerOrigin = {
+                x: evt.clientX - canvasPos.x - this.canvasBorderWidth,
+                y: evt.clientY - canvasPos.y - this.canvasBorderWidth
+            }
+
+
+            this.bubbles.forEach((bubble: Bubble) => {
+                if (Distance.euclidean(pointerOrigin, bubble.origin) < bubble.radius + this.pointer.radius) {
+                    bubble.color = "blue";
+                    this.update();
+                    this.loop.stop();
+                }
+            });
+
+        });
+
     }
 
     private resizeCanvas() {
