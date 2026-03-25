@@ -1,6 +1,6 @@
 import {Circle} from "./framework26/shapes/Circle";
 import {settings} from "./settings";
-import {Random} from "./framework26/Math/Random";
+import {Random} from "./framework26/math/Random";
 
 export class Bubble extends Circle {
     private pseudoSpeed: number;
